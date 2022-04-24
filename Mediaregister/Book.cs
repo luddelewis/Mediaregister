@@ -9,17 +9,17 @@ namespace Mediaregister
     class Book : Media
     {
         private string author;
-        private int length;
+        private int nrOfPages;
         //Konstruktor som ärver titel från basklassen media
-        public Book(string titel, string author, int length) : base(titel)
+        public Book(string titel, string author, int pages) : base(titel)
         {
             this.author = author;
-            this.length = length;
+            nrOfPages = pages;
         }
         //Override av ToString() för classen Book
         public override string ToString()
         {
-            return String.Format("{0}({1},{2} minuter)",titel,author,length);
+            return String.Format("{0}({1},{2} sidor)",titel,author,nrOfPages);
         }
     }
 }

@@ -31,32 +31,31 @@ namespace Mediaregister
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.bokTab = new System.Windows.Forms.TabPage();
-            this.sidorNumUpDw = new System.Windows.Forms.NumericUpDown();
+            this.pagesUpDwn = new System.Windows.Forms.NumericUpDown();
             this.bokBtn = new System.Windows.Forms.Button();
             this.sidorLabel = new System.Windows.Forms.Label();
             this.författareLabel = new System.Windows.Forms.Label();
-            this.författareTextBox = new System.Windows.Forms.TextBox();
+            this.authorTextBox = new System.Windows.Forms.TextBox();
             this.bokTitelTextBox = new System.Windows.Forms.TextBox();
             this.bokTitelLabel = new System.Windows.Forms.Label();
             this.filmTab = new System.Windows.Forms.TabPage();
             this.filmBtn = new System.Windows.Forms.Button();
-            this.spellängeNumUpDw = new System.Windows.Forms.NumericUpDown();
+            this.spellängeNumUpDwn = new System.Windows.Forms.NumericUpDown();
             this.spellängdLabel = new System.Windows.Forms.Label();
-            this.regissörLabel = new System.Windows.Forms.Label();
-            this.regissörTextBox = new System.Windows.Forms.TextBox();
+            this.directorLabel = new System.Windows.Forms.Label();
+            this.directorTextBox = new System.Windows.Forms.TextBox();
             this.filmTitelTextBox = new System.Windows.Forms.TextBox();
             this.filmTitelLabel = new System.Windows.Forms.Label();
-            this.listaTextBox = new System.Windows.Forms.RichTextBox();
             this.visaRadioGroup = new System.Windows.Forms.GroupBox();
             this.filmRadio = new System.Windows.Forms.RadioButton();
             this.bokRadio = new System.Windows.Forms.RadioButton();
             this.allaRadio = new System.Windows.Forms.RadioButton();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.listaTextBox = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.bokTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sidorNumUpDw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagesUpDwn)).BeginInit();
             this.filmTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spellängeNumUpDw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spellängeNumUpDwn)).BeginInit();
             this.visaRadioGroup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,28 +71,28 @@ namespace Mediaregister
             // 
             // bokTab
             // 
-            this.bokTab.Controls.Add(this.sidorNumUpDw);
+            this.bokTab.Controls.Add(this.pagesUpDwn);
             this.bokTab.Controls.Add(this.bokBtn);
             this.bokTab.Controls.Add(this.sidorLabel);
             this.bokTab.Controls.Add(this.författareLabel);
-            this.bokTab.Controls.Add(this.författareTextBox);
+            this.bokTab.Controls.Add(this.authorTextBox);
             this.bokTab.Controls.Add(this.bokTitelTextBox);
             this.bokTab.Controls.Add(this.bokTitelLabel);
             this.bokTab.Location = new System.Drawing.Point(4, 29);
             this.bokTab.Name = "bokTab";
-            this.bokTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bokTab.Padding = new System.Windows.Forms.Padding(3);
             this.bokTab.Size = new System.Drawing.Size(376, 396);
             this.bokTab.TabIndex = 0;
             this.bokTab.Text = "Lägg till bok";
             this.bokTab.UseVisualStyleBackColor = true;
             // 
-            // sidorNumUpDw
+            // sidorNumUpDwn
             // 
-            this.sidorNumUpDw.Location = new System.Drawing.Point(136, 118);
-            this.sidorNumUpDw.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.sidorNumUpDw.Name = "sidorNumUpDw";
-            this.sidorNumUpDw.Size = new System.Drawing.Size(152, 26);
-            this.sidorNumUpDw.TabIndex = 7;
+            this.pagesUpDwn.Location = new System.Drawing.Point(136, 118);
+            this.pagesUpDwn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pagesUpDwn.Name = "sidorNumUpDwn";
+            this.pagesUpDwn.Size = new System.Drawing.Size(152, 26);
+            this.pagesUpDwn.TabIndex = 7;
             // 
             // bokBtn
             // 
@@ -103,11 +102,12 @@ namespace Mediaregister
             this.bokBtn.TabIndex = 6;
             this.bokBtn.Text = "Lägg till Bok";
             this.bokBtn.UseVisualStyleBackColor = true;
+            this.bokBtn.Click += new System.EventHandler(this.addBookBtn);
             // 
             // sidorLabel
             // 
             this.sidorLabel.AutoSize = true;
-            this.sidorLabel.Location = new System.Drawing.Point(40, 129);
+            this.sidorLabel.Location = new System.Drawing.Point(40, 120);
             this.sidorLabel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.sidorLabel.Name = "sidorLabel";
             this.sidorLabel.Size = new System.Drawing.Size(50, 20);
@@ -124,13 +124,13 @@ namespace Mediaregister
             this.författareLabel.TabIndex = 4;
             this.författareLabel.Text = "Författare:";
             // 
-            // författareTextBox
+            // authorTextBox
             // 
-            this.författareTextBox.Location = new System.Drawing.Point(136, 78);
-            this.författareTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.författareTextBox.Name = "författareTextBox";
-            this.författareTextBox.Size = new System.Drawing.Size(150, 26);
-            this.författareTextBox.TabIndex = 2;
+            this.authorTextBox.Location = new System.Drawing.Point(136, 78);
+            this.authorTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.authorTextBox.Name = "authorTextBox";
+            this.authorTextBox.Size = new System.Drawing.Size(150, 26);
+            this.authorTextBox.TabIndex = 2;
             // 
             // bokTitelTextBox
             // 
@@ -153,15 +153,15 @@ namespace Mediaregister
             // filmTab
             // 
             this.filmTab.Controls.Add(this.filmBtn);
-            this.filmTab.Controls.Add(this.spellängeNumUpDw);
+            this.filmTab.Controls.Add(this.spellängeNumUpDwn);
             this.filmTab.Controls.Add(this.spellängdLabel);
-            this.filmTab.Controls.Add(this.regissörLabel);
-            this.filmTab.Controls.Add(this.regissörTextBox);
+            this.filmTab.Controls.Add(this.directorLabel);
+            this.filmTab.Controls.Add(this.directorTextBox);
             this.filmTab.Controls.Add(this.filmTitelTextBox);
             this.filmTab.Controls.Add(this.filmTitelLabel);
             this.filmTab.Location = new System.Drawing.Point(4, 29);
             this.filmTab.Name = "filmTab";
-            this.filmTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.filmTab.Padding = new System.Windows.Forms.Padding(3);
             this.filmTab.Size = new System.Drawing.Size(376, 396);
             this.filmTab.TabIndex = 1;
             this.filmTab.Text = "Lägg till film";
@@ -175,14 +175,15 @@ namespace Mediaregister
             this.filmBtn.TabIndex = 13;
             this.filmBtn.Text = "Lägg till Film";
             this.filmBtn.UseVisualStyleBackColor = true;
+            this.filmBtn.Click += new System.EventHandler(this.addBookBtn);
             // 
-            // spellängeNumUpDw
+            // spellängeNumUpDwn
             // 
-            this.spellängeNumUpDw.Location = new System.Drawing.Point(136, 118);
-            this.spellängeNumUpDw.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.spellängeNumUpDw.Name = "spellängeNumUpDw";
-            this.spellängeNumUpDw.Size = new System.Drawing.Size(152, 26);
-            this.spellängeNumUpDw.TabIndex = 12;
+            this.spellängeNumUpDwn.Location = new System.Drawing.Point(136, 118);
+            this.spellängeNumUpDwn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.spellängeNumUpDwn.Name = "spellängeNumUpDwn";
+            this.spellängeNumUpDwn.Size = new System.Drawing.Size(152, 26);
+            this.spellängeNumUpDwn.TabIndex = 12;
             // 
             // spellängdLabel
             // 
@@ -194,23 +195,23 @@ namespace Mediaregister
             this.spellängdLabel.TabIndex = 11;
             this.spellängdLabel.Text = "Spellängd:";
             // 
-            // regissörLabel
+            // directorLabel
             // 
-            this.regissörLabel.AutoSize = true;
-            this.regissörLabel.Location = new System.Drawing.Point(36, 83);
-            this.regissörLabel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.regissörLabel.Name = "regissörLabel";
-            this.regissörLabel.Size = new System.Drawing.Size(76, 20);
-            this.regissörLabel.TabIndex = 10;
-            this.regissörLabel.Text = "Regissör:";
+            this.directorLabel.AutoSize = true;
+            this.directorLabel.Location = new System.Drawing.Point(36, 83);
+            this.directorLabel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.directorLabel.Name = "directorLabel";
+            this.directorLabel.Size = new System.Drawing.Size(76, 20);
+            this.directorLabel.TabIndex = 10;
+            this.directorLabel.Text = "Regissör:";
             // 
-            // regissörTextBox
+            // directorTextBox
             // 
-            this.regissörTextBox.Location = new System.Drawing.Point(136, 78);
-            this.regissörTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.regissörTextBox.Name = "regissörTextBox";
-            this.regissörTextBox.Size = new System.Drawing.Size(150, 26);
-            this.regissörTextBox.TabIndex = 8;
+            this.directorTextBox.Location = new System.Drawing.Point(136, 78);
+            this.directorTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.directorTextBox.Name = "directorTextBox";
+            this.directorTextBox.Size = new System.Drawing.Size(150, 26);
+            this.directorTextBox.TabIndex = 8;
             // 
             // filmTitelTextBox
             // 
@@ -229,14 +230,6 @@ namespace Mediaregister
             this.filmTitelLabel.Size = new System.Drawing.Size(42, 20);
             this.filmTitelLabel.TabIndex = 6;
             this.filmTitelLabel.Text = "Titel:";
-            // 
-            // listaTextBox
-            // 
-            this.listaTextBox.Location = new System.Drawing.Point(402, 42);
-            this.listaTextBox.Name = "listaTextBox";
-            this.listaTextBox.Size = new System.Drawing.Size(386, 396);
-            this.listaTextBox.TabIndex = 2;
-            this.listaTextBox.Text = "";
             // 
             // visaRadioGroup
             // 
@@ -282,25 +275,34 @@ namespace Mediaregister
             this.allaRadio.Text = "Alla";
             this.allaRadio.UseVisualStyleBackColor = true;
             // 
+            // listaTextBox
+            // 
+            this.listaTextBox.Location = new System.Drawing.Point(402, 42);
+            this.listaTextBox.Multiline = true;
+            this.listaTextBox.Name = "listaTextBox";
+            this.listaTextBox.Size = new System.Drawing.Size(386, 396);
+            this.listaTextBox.TabIndex = 4;
+            // 
             // Mediaregisterform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 568);
-            this.Controls.Add(this.visaRadioGroup);
             this.Controls.Add(this.listaTextBox);
+            this.Controls.Add(this.visaRadioGroup);
             this.Controls.Add(this.tabControl);
             this.Name = "Mediaregisterform";
             this.tabControl.ResumeLayout(false);
             this.bokTab.ResumeLayout(false);
             this.bokTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sidorNumUpDw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagesUpDwn)).EndInit();
             this.filmTab.ResumeLayout(false);
             this.filmTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spellängeNumUpDw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spellängeNumUpDwn)).EndInit();
             this.visaRadioGroup.ResumeLayout(false);
             this.visaRadioGroup.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -309,25 +311,24 @@ namespace Mediaregister
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage bokTab;
         private System.Windows.Forms.TabPage filmTab;
-        private System.Windows.Forms.RichTextBox listaTextBox;
         private System.Windows.Forms.GroupBox visaRadioGroup;
         private System.Windows.Forms.RadioButton filmRadio;
         private System.Windows.Forms.RadioButton bokRadio;
         private System.Windows.Forms.RadioButton allaRadio;
         private System.Windows.Forms.TextBox bokTitelTextBox;
         private System.Windows.Forms.Label bokTitelLabel;
-        private System.Windows.Forms.TextBox författareTextBox;
+        private System.Windows.Forms.TextBox authorTextBox;
         private System.Windows.Forms.Label sidorLabel;
         private System.Windows.Forms.Label författareLabel;
         private System.Windows.Forms.Button bokBtn;
         private System.Windows.Forms.Label spellängdLabel;
-        private System.Windows.Forms.Label regissörLabel;
-        private System.Windows.Forms.TextBox regissörTextBox;
+        private System.Windows.Forms.Label directorLabel;
+        private System.Windows.Forms.TextBox directorTextBox;
         private System.Windows.Forms.TextBox filmTitelTextBox;
         private System.Windows.Forms.Label filmTitelLabel;
-        private System.Windows.Forms.NumericUpDown sidorNumUpDw;
+        private System.Windows.Forms.NumericUpDown pagesUpDwn;
         private System.Windows.Forms.Button filmBtn;
-        private System.Windows.Forms.NumericUpDown spellängeNumUpDw;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.NumericUpDown spellängeNumUpDwn;
+        private System.Windows.Forms.TextBox listaTextBox;
     }
 }

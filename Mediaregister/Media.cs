@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mediaregister
 {
-    class Media
+    public class Media
     {
         protected string titel;
         //Konstruktor
