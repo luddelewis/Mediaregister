@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mediaregister
+﻿namespace Mediaregister
 {
     class Book : Media
     {
@@ -19,7 +13,7 @@ namespace Mediaregister
         //Override av ToString() för classen Book
         public override string ToString()
         {
-            return String.Format("{0}({1},{2} sidor)",titel,author,nrOfPages);
+            return $"{titel}({author},{nrOfPages} sidor)";
         }
     }
 }

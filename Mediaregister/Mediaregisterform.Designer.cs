@@ -40,7 +40,7 @@ namespace Mediaregister
             this.bokTitelLabel = new System.Windows.Forms.Label();
             this.filmTab = new System.Windows.Forms.TabPage();
             this.filmBtn = new System.Windows.Forms.Button();
-            this.spellängeNumUpDwn = new System.Windows.Forms.NumericUpDown();
+            this.lengthUpDwn = new System.Windows.Forms.NumericUpDown();
             this.spellängdLabel = new System.Windows.Forms.Label();
             this.directorLabel = new System.Windows.Forms.Label();
             this.directorTextBox = new System.Windows.Forms.TextBox();
@@ -49,13 +49,13 @@ namespace Mediaregister
             this.visaRadioGroup = new System.Windows.Forms.GroupBox();
             this.filmRadio = new System.Windows.Forms.RadioButton();
             this.bokRadio = new System.Windows.Forms.RadioButton();
-            this.allaRadio = new System.Windows.Forms.RadioButton();
+            this.AllaRadio = new System.Windows.Forms.RadioButton();
             this.listaTextBox = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.bokTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagesUpDwn)).BeginInit();
             this.filmTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spellängeNumUpDwn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lengthUpDwn)).BeginInit();
             this.visaRadioGroup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,11 +86,11 @@ namespace Mediaregister
             this.bokTab.Text = "Lägg till bok";
             this.bokTab.UseVisualStyleBackColor = true;
             // 
-            // sidorNumUpDwn
+            // pagesUpDwn
             // 
             this.pagesUpDwn.Location = new System.Drawing.Point(136, 118);
             this.pagesUpDwn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pagesUpDwn.Name = "sidorNumUpDwn";
+            this.pagesUpDwn.Name = "pagesUpDwn";
             this.pagesUpDwn.Size = new System.Drawing.Size(152, 26);
             this.pagesUpDwn.TabIndex = 7;
             // 
@@ -102,7 +102,7 @@ namespace Mediaregister
             this.bokBtn.TabIndex = 6;
             this.bokBtn.Text = "Lägg till Bok";
             this.bokBtn.UseVisualStyleBackColor = true;
-            this.bokBtn.Click += new System.EventHandler(this.addBookBtn);
+            this.bokBtn.Click += new System.EventHandler(this.Add_Book_Btn);
             // 
             // sidorLabel
             // 
@@ -153,7 +153,7 @@ namespace Mediaregister
             // filmTab
             // 
             this.filmTab.Controls.Add(this.filmBtn);
-            this.filmTab.Controls.Add(this.spellängeNumUpDwn);
+            this.filmTab.Controls.Add(this.lengthUpDwn);
             this.filmTab.Controls.Add(this.spellängdLabel);
             this.filmTab.Controls.Add(this.directorLabel);
             this.filmTab.Controls.Add(this.directorTextBox);
@@ -175,15 +175,15 @@ namespace Mediaregister
             this.filmBtn.TabIndex = 13;
             this.filmBtn.Text = "Lägg till Film";
             this.filmBtn.UseVisualStyleBackColor = true;
-            this.filmBtn.Click += new System.EventHandler(this.addBookBtn);
+            this.filmBtn.Click += new System.EventHandler(this.Add_Film_Btn);
             // 
-            // spellängeNumUpDwn
+            // lengthUpDwn
             // 
-            this.spellängeNumUpDwn.Location = new System.Drawing.Point(136, 118);
-            this.spellängeNumUpDwn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.spellängeNumUpDwn.Name = "spellängeNumUpDwn";
-            this.spellängeNumUpDwn.Size = new System.Drawing.Size(152, 26);
-            this.spellängeNumUpDwn.TabIndex = 12;
+            this.lengthUpDwn.Location = new System.Drawing.Point(136, 118);
+            this.lengthUpDwn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lengthUpDwn.Name = "lengthUpDwn";
+            this.lengthUpDwn.Size = new System.Drawing.Size(152, 26);
+            this.lengthUpDwn.TabIndex = 12;
             // 
             // spellängdLabel
             // 
@@ -235,7 +235,7 @@ namespace Mediaregister
             // 
             this.visaRadioGroup.Controls.Add(this.filmRadio);
             this.visaRadioGroup.Controls.Add(this.bokRadio);
-            this.visaRadioGroup.Controls.Add(this.allaRadio);
+            this.visaRadioGroup.Controls.Add(this.AllaRadio);
             this.visaRadioGroup.Location = new System.Drawing.Point(402, 445);
             this.visaRadioGroup.Name = "visaRadioGroup";
             this.visaRadioGroup.Size = new System.Drawing.Size(342, 75);
@@ -252,6 +252,7 @@ namespace Mediaregister
             this.filmRadio.TabIndex = 2;
             this.filmRadio.Text = "Filmer";
             this.filmRadio.UseVisualStyleBackColor = true;
+            this.filmRadio.CheckedChanged += new System.EventHandler(this.Radio_Changed);
             // 
             // bokRadio
             // 
@@ -262,18 +263,20 @@ namespace Mediaregister
             this.bokRadio.TabIndex = 1;
             this.bokRadio.Text = "Böcker";
             this.bokRadio.UseVisualStyleBackColor = true;
+            this.bokRadio.CheckedChanged += new System.EventHandler(this.Radio_Changed);
             // 
-            // allaRadio
+            // AllaRadio
             // 
-            this.allaRadio.AutoSize = true;
-            this.allaRadio.Checked = true;
-            this.allaRadio.Location = new System.Drawing.Point(21, 25);
-            this.allaRadio.Name = "allaRadio";
-            this.allaRadio.Size = new System.Drawing.Size(60, 24);
-            this.allaRadio.TabIndex = 0;
-            this.allaRadio.TabStop = true;
-            this.allaRadio.Text = "Alla";
-            this.allaRadio.UseVisualStyleBackColor = true;
+            this.AllaRadio.AutoSize = true;
+            this.AllaRadio.Checked = true;
+            this.AllaRadio.Location = new System.Drawing.Point(21, 25);
+            this.AllaRadio.Name = "AllaRadio";
+            this.AllaRadio.Size = new System.Drawing.Size(60, 24);
+            this.AllaRadio.TabIndex = 0;
+            this.AllaRadio.TabStop = true;
+            this.AllaRadio.Text = "Alla";
+            this.AllaRadio.UseVisualStyleBackColor = true;
+            this.AllaRadio.CheckedChanged += new System.EventHandler(this.Radio_Changed);
             // 
             // listaTextBox
             // 
@@ -298,7 +301,7 @@ namespace Mediaregister
             ((System.ComponentModel.ISupportInitialize)(this.pagesUpDwn)).EndInit();
             this.filmTab.ResumeLayout(false);
             this.filmTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spellängeNumUpDwn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lengthUpDwn)).EndInit();
             this.visaRadioGroup.ResumeLayout(false);
             this.visaRadioGroup.PerformLayout();
             this.ResumeLayout(false);
@@ -314,7 +317,7 @@ namespace Mediaregister
         private System.Windows.Forms.GroupBox visaRadioGroup;
         private System.Windows.Forms.RadioButton filmRadio;
         private System.Windows.Forms.RadioButton bokRadio;
-        private System.Windows.Forms.RadioButton allaRadio;
+        private System.Windows.Forms.RadioButton AllaRadio;
         private System.Windows.Forms.TextBox bokTitelTextBox;
         private System.Windows.Forms.Label bokTitelLabel;
         private System.Windows.Forms.TextBox authorTextBox;
@@ -328,7 +331,7 @@ namespace Mediaregister
         private System.Windows.Forms.Label filmTitelLabel;
         private System.Windows.Forms.NumericUpDown pagesUpDwn;
         private System.Windows.Forms.Button filmBtn;
-        private System.Windows.Forms.NumericUpDown spellängeNumUpDwn;
+        private System.Windows.Forms.NumericUpDown lengthUpDwn;
         private System.Windows.Forms.TextBox listaTextBox;
     }
 }
