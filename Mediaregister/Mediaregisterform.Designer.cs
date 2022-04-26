@@ -32,12 +32,12 @@ namespace Mediaregister
             this.tabControl = new System.Windows.Forms.TabControl();
             this.bokTab = new System.Windows.Forms.TabPage();
             this.pagesUpDwn = new System.Windows.Forms.NumericUpDown();
-            this.bokBtn = new System.Windows.Forms.Button();
+            this.bookBtn = new System.Windows.Forms.Button();
             this.sidorLabel = new System.Windows.Forms.Label();
-            this.författareLabel = new System.Windows.Forms.Label();
+            this.authorLabel = new System.Windows.Forms.Label();
             this.authorTextBox = new System.Windows.Forms.TextBox();
-            this.bokTitelTextBox = new System.Windows.Forms.TextBox();
-            this.bokTitelLabel = new System.Windows.Forms.Label();
+            this.bookTitelTextBox = new System.Windows.Forms.TextBox();
+            this.booktitelLabel = new System.Windows.Forms.Label();
             this.filmTab = new System.Windows.Forms.TabPage();
             this.filmBtn = new System.Windows.Forms.Button();
             this.lengthUpDwn = new System.Windows.Forms.NumericUpDown();
@@ -72,12 +72,12 @@ namespace Mediaregister
             // bokTab
             // 
             this.bokTab.Controls.Add(this.pagesUpDwn);
-            this.bokTab.Controls.Add(this.bokBtn);
+            this.bokTab.Controls.Add(this.bookBtn);
             this.bokTab.Controls.Add(this.sidorLabel);
-            this.bokTab.Controls.Add(this.författareLabel);
+            this.bokTab.Controls.Add(this.authorLabel);
             this.bokTab.Controls.Add(this.authorTextBox);
-            this.bokTab.Controls.Add(this.bokTitelTextBox);
-            this.bokTab.Controls.Add(this.bokTitelLabel);
+            this.bokTab.Controls.Add(this.bookTitelTextBox);
+            this.bokTab.Controls.Add(this.booktitelLabel);
             this.bokTab.Location = new System.Drawing.Point(4, 29);
             this.bokTab.Name = "bokTab";
             this.bokTab.Padding = new System.Windows.Forms.Padding(3);
@@ -94,15 +94,15 @@ namespace Mediaregister
             this.pagesUpDwn.Size = new System.Drawing.Size(152, 26);
             this.pagesUpDwn.TabIndex = 7;
             // 
-            // bokBtn
+            // bookBtn
             // 
-            this.bokBtn.Location = new System.Drawing.Point(162, 305);
-            this.bokBtn.Name = "bokBtn";
-            this.bokBtn.Size = new System.Drawing.Size(123, 34);
-            this.bokBtn.TabIndex = 6;
-            this.bokBtn.Text = "Lägg till Bok";
-            this.bokBtn.UseVisualStyleBackColor = true;
-            this.bokBtn.Click += new System.EventHandler(this.Add_Book_Btn);
+            this.bookBtn.Location = new System.Drawing.Point(162, 305);
+            this.bookBtn.Name = "bookBtn";
+            this.bookBtn.Size = new System.Drawing.Size(123, 34);
+            this.bookBtn.TabIndex = 6;
+            this.bookBtn.Text = "Lägg till Bok";
+            this.bookBtn.UseVisualStyleBackColor = true;
+            this.bookBtn.Click += new System.EventHandler(this.Add_Book_Btn);
             // 
             // sidorLabel
             // 
@@ -114,15 +114,15 @@ namespace Mediaregister
             this.sidorLabel.TabIndex = 5;
             this.sidorLabel.Text = "Sidor:";
             // 
-            // författareLabel
+            // authorLabel
             // 
-            this.författareLabel.AutoSize = true;
-            this.författareLabel.Location = new System.Drawing.Point(40, 83);
-            this.författareLabel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.författareLabel.Name = "författareLabel";
-            this.författareLabel.Size = new System.Drawing.Size(84, 20);
-            this.författareLabel.TabIndex = 4;
-            this.författareLabel.Text = "Författare:";
+            this.authorLabel.AutoSize = true;
+            this.authorLabel.Location = new System.Drawing.Point(40, 83);
+            this.authorLabel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.authorLabel.Name = "authorLabel";
+            this.authorLabel.Size = new System.Drawing.Size(84, 20);
+            this.authorLabel.TabIndex = 4;
+            this.authorLabel.Text = "Författare:";
             // 
             // authorTextBox
             // 
@@ -134,21 +134,21 @@ namespace Mediaregister
             // 
             // bokTitelTextBox
             // 
-            this.bokTitelTextBox.Location = new System.Drawing.Point(136, 38);
-            this.bokTitelTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bokTitelTextBox.Name = "bokTitelTextBox";
-            this.bokTitelTextBox.Size = new System.Drawing.Size(150, 26);
-            this.bokTitelTextBox.TabIndex = 1;
+            this.bookTitelTextBox.Location = new System.Drawing.Point(136, 38);
+            this.bookTitelTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bookTitelTextBox.Name = "bokTitelTextBox";
+            this.bookTitelTextBox.Size = new System.Drawing.Size(150, 26);
+            this.bookTitelTextBox.TabIndex = 1;
             // 
-            // bokTitelLabel
+            // booktitelLabel
             // 
-            this.bokTitelLabel.AutoSize = true;
-            this.bokTitelLabel.Location = new System.Drawing.Point(40, 43);
-            this.bokTitelLabel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bokTitelLabel.Name = "bokTitelLabel";
-            this.bokTitelLabel.Size = new System.Drawing.Size(42, 20);
-            this.bokTitelLabel.TabIndex = 0;
-            this.bokTitelLabel.Text = "Titel:";
+            this.booktitelLabel.AutoSize = true;
+            this.booktitelLabel.Location = new System.Drawing.Point(40, 43);
+            this.booktitelLabel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.booktitelLabel.Name = "booktitelLabel";
+            this.booktitelLabel.Size = new System.Drawing.Size(42, 20);
+            this.booktitelLabel.TabIndex = 0;
+            this.booktitelLabel.Text = "Titel:";
             // 
             // filmTab
             // 
@@ -283,6 +283,7 @@ namespace Mediaregister
             this.listaTextBox.Location = new System.Drawing.Point(402, 42);
             this.listaTextBox.Multiline = true;
             this.listaTextBox.Name = "listaTextBox";
+            this.listaTextBox.ReadOnly = true;
             this.listaTextBox.Size = new System.Drawing.Size(386, 396);
             this.listaTextBox.TabIndex = 4;
             // 
@@ -318,12 +319,12 @@ namespace Mediaregister
         private System.Windows.Forms.RadioButton filmRadio;
         private System.Windows.Forms.RadioButton bokRadio;
         private System.Windows.Forms.RadioButton AllaRadio;
-        private System.Windows.Forms.TextBox bokTitelTextBox;
-        private System.Windows.Forms.Label bokTitelLabel;
+        private System.Windows.Forms.TextBox bookTitelTextBox;
+        private System.Windows.Forms.Label booktitelLabel;
         private System.Windows.Forms.TextBox authorTextBox;
         private System.Windows.Forms.Label sidorLabel;
-        private System.Windows.Forms.Label författareLabel;
-        private System.Windows.Forms.Button bokBtn;
+        private System.Windows.Forms.Label authorLabel;
+        private System.Windows.Forms.Button bookBtn;
         private System.Windows.Forms.Label spellängdLabel;
         private System.Windows.Forms.Label directorLabel;
         private System.Windows.Forms.TextBox directorTextBox;
