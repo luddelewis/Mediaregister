@@ -105,17 +105,17 @@ namespace Mediaregister
         private void clearText()
         {
             //Rensar texten
-            if(tabControl.SelectedIndex== 0)
+            if (tabControl.SelectedIndex == 0)
             {
-                bookTitelTextBox.Text = String.Empty;   
-                authorTextBox.Text = String.Empty;  
-                pagesUpDwn.Value = 0;   
+                bookTitelTextBox.Text = String.Empty;
+                authorTextBox.Text = String.Empty;
+                pagesUpDwn.Value = 0;
             }
             else
             {
-                filmTitelTextBox.Text= String.Empty;
-                directorTextBox.Text= String.Empty; 
-                lengthUpDwn.Value = 0;  
+                filmTitelTextBox.Text = String.Empty;
+                directorTextBox.Text = String.Empty;
+                lengthUpDwn.Value = 0;
             }
         }
 

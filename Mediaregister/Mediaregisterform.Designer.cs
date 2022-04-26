@@ -90,6 +90,11 @@ namespace Mediaregister
             // 
             this.pagesUpDwn.Location = new System.Drawing.Point(136, 118);
             this.pagesUpDwn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pagesUpDwn.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.pagesUpDwn.Name = "pagesUpDwn";
             this.pagesUpDwn.Size = new System.Drawing.Size(152, 26);
             this.pagesUpDwn.TabIndex = 7;
@@ -181,6 +186,11 @@ namespace Mediaregister
             // 
             this.lengthUpDwn.Location = new System.Drawing.Point(136, 118);
             this.lengthUpDwn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lengthUpDwn.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.lengthUpDwn.Name = "lengthUpDwn";
             this.lengthUpDwn.Size = new System.Drawing.Size(152, 26);
             this.lengthUpDwn.TabIndex = 12;
