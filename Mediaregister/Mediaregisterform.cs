@@ -90,12 +90,12 @@ namespace Mediaregister
         {
             bool checkResult = false;
             //Kollar om det finns värden i boktaben
-            if (tabControl.SelectedIndex == 0 && bookTitelTextBox.Text != String.Empty && authorTextBox.Text != String.Empty && pagesUpDwn.Value != 0)
+            if (tabControl.SelectedIndex == 0 && bookTitelTextBox.Text.Trim() != String.Empty && authorTextBox.Text.Trim() != String.Empty && pagesUpDwn.Value != 0)
             {
                 checkResult = true;
             }
             //Kollar om det finns värden i filmtaben
-            else if (filmTitelTextBox.Text != String.Empty && directorTextBox.Text != String.Empty && lengthUpDwn.Value != 0)
+            else if (filmTitelTextBox.Text.Trim() != String.Empty && directorTextBox.Text.Trim() != String.Empty && lengthUpDwn.Value != 0)
             {
                 checkResult = true;
             }
