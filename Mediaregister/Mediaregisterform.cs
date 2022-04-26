@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace Mediaregister
 {
     public partial class Mediaregisterform : Form
     {
-        //Lista för media 
+        //Lista för media objekten
         private List<Media> mediaList = new List<Media>();
         //Variabel för att lagra den valda radioknappen, startar som alla
         private string checkedBtn = "Alla";
@@ -16,6 +16,7 @@ namespace Mediaregister
             InitializeComponent();
 
         }
+        //Lägg till bok knapp
         private void Add_Book_Btn(object sender, EventArgs e)
         {
             if (CheckInput())
@@ -24,9 +25,12 @@ namespace Mediaregister
                 Book book = new Book(bookTitelTextBox.Text, authorTextBox.Text, Convert.ToInt32(pagesUpDwn.Value));
                 mediaList.Add(book);
                 PanelUpdate();
+                clearText();
             }
-           
+            else MessageBox.Show("Värden saknas!");
+
         }
+        //Lägg till film knapp
         private void Add_Film_Btn(object sender, EventArgs e)
         {
             if (CheckInput())
@@ -35,8 +39,10 @@ namespace Mediaregister
                 Film film = new Film(filmTitelTextBox.Text, directorTextBox.Text, Convert.ToInt32(lengthUpDwn.Value));
                 mediaList.Add(film);
                 PanelUpdate();
-            }           
-            
+                clearText();
+            }
+            else MessageBox.Show("Värden saknas!");
+
         }
         //Funktion för uppdatering av visningsfönstret
         private void PanelUpdate()
@@ -69,8 +75,8 @@ namespace Mediaregister
                     break;
             }
 
-            
-            
+
+
         }
         //Körs när någon av radiobtns ändras
         private void Radio_Changed(object sender, EventArgs e)
@@ -79,21 +85,40 @@ namespace Mediaregister
             checkedBtn = (sender as RadioButton).Text;
             PanelUpdate();
         }
-
+        //Kontrollerar inmatningen
         private bool CheckInput()
         {
             bool checkResult = false;
-            if (tabControl.SelectedIndex == 0 && bookTitelTextBox.Text != String.Empty && authorTextBox.Text != String.Empty && pagesUpDwn.Value != 0 )
+            //Kollar om det finns värden i boktaben
+            if (tabControl.SelectedIndex == 0 && bookTitelTextBox.Text != String.Empty && authorTextBox.Text != String.Empty && pagesUpDwn.Value != 0)
             {
                 checkResult = true;
             }
-            else if(filmTitelTextBox.Text != String.Empty && directorTextBox.Text != String.Empty && lengthUpDwn.Value != 0)
+            //Kollar om det finns värden i filmtaben
+            else if (filmTitelTextBox.Text != String.Empty && directorTextBox.Text != String.Empty && lengthUpDwn.Value != 0)
             {
                 checkResult = true;
             }
             return checkResult;
         }
+        //Funktion som rensar den inmatade texten
+        private void clearText()
+        {
+            //Rensar texten
+            if(tabControl.SelectedIndex== 0)
+            {
+                bookTitelTextBox.Text = String.Empty;   
+                authorTextBox.Text = String.Empty;  
+                pagesUpDwn.Value = 0;   
+            }
+            else
+            {
+                filmTitelTextBox.Text= String.Empty;
+                directorTextBox.Text= String.Empty; 
+                lengthUpDwn.Value = 0;  
+            }
+        }
 
-        
+
     }
 }

@@ -13,7 +13,7 @@
         //Override av ToString() för classen Book
         public override string ToString()
         {
-            return $"{titel}({author},{nrOfPages} sidor)";
+            return $"{titel} ({author}, {nrOfPages} sidor)";
         }
     }
 }

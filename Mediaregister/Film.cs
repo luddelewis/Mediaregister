@@ -13,7 +13,7 @@
         //Override av ToString() för classen Film
         public override string ToString()
         {
-            return $"{titel}({director},{length} minuter)";
+            return $"{titel} ({director}, {length} minuter)";
         }
     }
 }

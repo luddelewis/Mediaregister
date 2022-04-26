@@ -132,11 +132,11 @@ namespace Mediaregister
             this.authorTextBox.Size = new System.Drawing.Size(150, 26);
             this.authorTextBox.TabIndex = 2;
             // 
-            // bokTitelTextBox
+            // bookTitelTextBox
             // 
             this.bookTitelTextBox.Location = new System.Drawing.Point(136, 38);
             this.bookTitelTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bookTitelTextBox.Name = "bokTitelTextBox";
+            this.bookTitelTextBox.Name = "bookTitelTextBox";
             this.bookTitelTextBox.Size = new System.Drawing.Size(150, 26);
             this.bookTitelTextBox.TabIndex = 1;
             // 
@@ -280,10 +280,12 @@ namespace Mediaregister
             // 
             // listaTextBox
             // 
+            this.listaTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listaTextBox.Location = new System.Drawing.Point(402, 42);
             this.listaTextBox.Multiline = true;
             this.listaTextBox.Name = "listaTextBox";
             this.listaTextBox.ReadOnly = true;
+            this.listaTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.listaTextBox.Size = new System.Drawing.Size(386, 396);
             this.listaTextBox.TabIndex = 4;
             // 
@@ -296,6 +298,7 @@ namespace Mediaregister
             this.Controls.Add(this.visaRadioGroup);
             this.Controls.Add(this.tabControl);
             this.Name = "Mediaregisterform";
+            this.Text = "Mediaregister";
             this.tabControl.ResumeLayout(false);
             this.bokTab.ResumeLayout(false);
             this.bokTab.PerformLayout();
